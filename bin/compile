@@ -91,11 +91,11 @@ mkdir -p $CACHE_DIR
 test -d $VENDOR_DIR && cp -r $VENDOR_DIR $CACHE_DIR/
 
 # removed unneeded files to make slug smaller
-pushd $VENDOR_DIR/gcc-4.3 > /dev/null && rm -rf !(lib64) && popd > /dev/null
-pushd $VENDOR_DIR/glibc-2.7 > /dev/null && rm -rf !(string|time) && popd > /dev/null
+pushd $VENDOR_DIR/gcc > /dev/null && rm -rf !(lib64) && popd > /dev/null
+pushd $VENDOR_DIR/glibc > /dev/null && rm -rf !(string|time) && popd > /dev/null
 
 # HACK
-cp /app/vendor/gcc-4.3/lib64/* $VENDOR_DIR/R/lib64/R/lib
+cp /app/vendor/gcc/lib64/* $VENDOR_DIR/R/lib64/R/lib
 
 # Write a sane .Rprofile
 cat > $BUILD_DIR/.Rprofile <<RPROFILE
